@@ -1,0 +1,27 @@
+<html>
+<head>
+
+</head>
+<body>
+  
+  <button onclick="accesscheck()">CLICK HERE</button>
+  <p id="result"></p>
+
+  <script language = "javascript" type = "text/javascript">
+      
+      let user = {
+        userName : 'Deepu',
+        age : 20,
+        admin: 'true', 
+      };
+      function accesscheck(){
+      var accessMessage = (user.admin) && (user.age>=18) ? "Access Granted" : "Access Denied";
+        document.getElementById("result").innerHTML = accessMessage;
+      console.log("age exist" , "age" in user);
+    delete user.age;
+    console.log(user);
+    };
+      
+  </script>
+</body>
+</html>
