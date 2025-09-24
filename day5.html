@@ -1,0 +1,23 @@
+<html>
+<head></head>
+<body>
+  <button onclick="checkreturneligibility()">CLICK HERE</button>
+  <p id="demo"></p>
+    <script language = "javascript" type = "text/javascript">
+
+  let order = {
+    itemname:'Fruits',
+    isDelivered: true,    
+    daysSinceDelivery:6
+  };
+  function checkreturneligibility(){
+  var message=(order.isDelivered && order.daysSinceDelivery<=7)?"Eligible for return":"Return Period Expired";
+  document.getElementById("demo").innerHTML = message;
+  console.log("itemname exist","itemname" in order);
+  delete order.daysSinceDelivery;
+  console.log(order);
+  }
+
+    </script>
+</body>
+</html>
