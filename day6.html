@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product Listing</title>
+</head>
+<body>
+  <script>
+    let products = ["Apple", "Banana", "Mango", "Orange"];
+    let prices = [50, 80, 100, 40];
+
+    let productList = products.map((product, index) => {
+      return `Products: ${product} - prices: ${prices[index]}`;
+    });
+
+    console.log("All Products:");
+    productList.forEach(item => {
+      console.log(item);
+    });
+
+    let filtered = productList.filter((item, index) => prices[index] > 50);
+    console.log("\nProducts with price > 50:");
+    filtered.forEach(item => {
+      console.log(item);
+    });
+
+    products.push("Watermelon");
+    prices.push(80);
+    productList.push(`Product: Watermelon - Price: 80`);
+
+    console.log("\nUpdated Product List:");
+    productList.forEach(item => {
+      console.log(item);
+    });
+  </script>
+</body>
+</html>
