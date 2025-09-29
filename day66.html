@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>       
+        <script>
+let students = [
+    { name: "Anagha", score: 80 },
+    { name: "Devika", score: 91 },
+    { name: "dilsha", score: 33 },
+    { name: "kavya", score: 65 },
+    { name: "Anuja", score: 54 }
+              ];
+let studentName = [];
+for (let i = 0; i < students.length; i++) {
+    studentName.push(students[i].name);
+}
+console.log("Name of all students:", studentName);
+
+
+let above60 = [];
+for (let i = 0; i < students.length; i++) {
+    if (students[i].score > 60) {
+        above60.push(students[i].name);
+    }
+}
+console.log("Students who scored more than 60 is : ", above60);
+
+
+let totalScore = 0;
+for (let i = 0; i < students.length; i++) {
+    totalScore += students[i].score;
+}
+console.log("Total Score:", totalScore);
+
+
+let allPassed = true;
+for (let i = 0; i < students.length; i++) {
+    if (students[i].score <= 35) {
+        allPassed = false;
+    
+    }
+}
+console.log("If all students passed : ", allPassed);
+
+
+let anyAbove90 = false;
+for (let i = 0; i < students.length; i++) {
+    if (students[i].score > 90) {
+        anyAbove90 = true;
+        
+    }
+}
+console.log("Is anyone scored above 90 :", anyAbove90);
+
+let sortedStudents = students.sort((a, b) => b.score - a.score);
+
+console.log("Sorted Students (Name + Score):");
+for (let i = 0; i < sortedStudents.length; i++) {
+    console.log(sortedStudents[i].name + " " + sortedStudents[i].score);
+}
+
+</script>
+</body>
+</html>
