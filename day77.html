@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Event Reminder Tool</title>
+</head>
+<body>
+  <h2>Event Reminder Tool</h2>
+  <label for="eventDate">Enter a Past Date:</label>
+  <input type="date" id="eventDate">
+  <button onclick="analyzeDate()">Analyze Date</button>
+  <div id="result"></div>
+
+  <script>
+    function analyzeDate() {
+      const dateInput = document.getElementById("eventDate").value;
+      const resultDiv = document.getElementById("result");
+      resultDiv.innerHTML = "";
+
+      if (!dateInput) {
+        resultDiv.innerHTML = "<p>Please select a date.</p>";
+        return;
+      }
+
+      const pastDate = new Date(dateInput);
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      pastDate.setHours(0, 0, 0, 0);
+
+      if (isNaN(pastDate.getTime()) || pastDate > today) {
+        resultDiv.innerHTML = "<p>Please select a valid past date.</p>";
+        return;
+      }
+
+      const year = pastDate.getFullYear();
+      const monthName = pastDate.toLocaleDateString("en-US", { month: "long" });
+      const day = pastDate.getDate();
+
+      let fullYears = today.getFullYear() - pastDate.getFullYear();
+      const anniversaryMonth = pastDate.getMonth();
+      const anniversaryDay = pastDate.getDate();
+      const currentMonth = today.getMonth();
+      const currentDay = today.getDate();
+
+      if (
+        currentMonth < anniversaryMonth ||
+        (currentMonth === anniversaryMonth && currentDay < anniversaryDay)
+      ) {
+        fullYears--;
+      }
+
+      let message =
+        fullYears >= 1
+          ? "It has been more than a year since that date."
+          : "It has been less than a year since that date.";
+
+      resultDiv.innerHTML = `
+        <p><strong>Date:</strong> ${day} ${monthName}, ${year}</p>
+        <p><strong>Full Years Passed:</strong> ${fullYears}</p>
+        <p><strong>Message:</strong> ${message}</p>
+      `;
+    }
+  </script>
+</body>
+</html>
