@@ -1,0 +1,60 @@
+<html>
+  <head></head>
+<body>
+<script language = "javascript" type = "text/javascript">
+
+    /*let code = parseInt(prompt("Enter a no (1-5):"));
+
+    if (code==3) {
+        console.log("You guessed it right! Stop the game");
+} else if ((code==2)||(code==4)||(code==1)||(code==5)) {
+        console.log("Wrong guess.Try again");
+} else {
+        console.log("Invalid input!");
+        
+    
+}*/
+let correctNumber = 3; 
+let validChances = 0;   
+
+for (let i = 1; i <= 5; i++) {
+    let guess = parseInt(prompt("Enter a number between 1 and 5:"));
+    
+    if (guess < 1 || guess > 5 || isNaN(guess)) {
+        alert("Invalid input");
+        continue; 
+    }
+
+    validChances++; 
+     let numberInWords = "";
+    switch (guess) {
+        case 1:
+            numberInWords = "one";
+            break;
+        case 2:
+            numberInWords = "two";
+            break;
+        case 3:
+            numberInWords = "three";
+            break;
+        case 4:
+            numberInWords = "four";
+            break;
+        case 5:
+            numberInWords = "five";
+            break;
+    }
+
+    if (guess === correctNumber) {
+        alert("You guessed it right!");
+        break;
+    } else {
+        alert("Wrong guess. Try again.");
+    }
+
+    if (validChances === 5) {
+        alert("Game over");
+    }
+}
+    </script></body>
+</html>
