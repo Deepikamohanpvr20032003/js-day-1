@@ -1,0 +1,16 @@
+<html>
+<head></head>
+<body>
+<script>
+function checkComment(comment) {
+  const Number = /\d/.test(comment);
+  const updatedComment = comment.replace(/\d+/g, "NUMBER");
+  
+  console.log("Number Founded: " + Number);
+  console.log("Updated Comment: " + updatedComment);
+}
+
+checkComment("My son is 12 years old. Our flat number is 45 and contact is 9876543210.");
+</script>
+</body>
+</html>
