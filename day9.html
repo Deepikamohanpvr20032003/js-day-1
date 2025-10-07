@@ -1,0 +1,20 @@
+
+<html>
+<head></head>
+<body>
+<script>
+function filtercomment(comment) {
+  const bannedWords = /(bad|ugly|stupid)/gi;
+  const newComment = comment.replace(bannedWords, '*');
+  const numberCount = (comment.match(/\d+/g) || []).length;
+  const capitalizedCount = (comment.match(/\b[A-Z][a-zA-Z]*\b/g) || []).length;
+  
+  console.log('New Comment: ' + newComment);
+  console.log('Number Count: ' + numberCount);
+  console.log('Capitalized Word Count: ' + capitalizedCount);
+}
+
+filtercomment("I think this movie was BAD and 100% Stupid! But the Acting was Amazing and 3 actors were great.");
+</script>
+</body>
+</html>
